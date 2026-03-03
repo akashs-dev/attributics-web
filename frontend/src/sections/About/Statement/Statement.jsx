@@ -5,11 +5,11 @@ import Metrics from './Metrics';
 
 const Statement = () => {
     return (
-        <Block xpad='larger'>
+        <Block xpad='large'>
         <section id="about" className='h-full w-full'>
             {/* STATEMENT */}
             <motion.div 
-                className="relative h-auto hyphens-none flex flex-col items-center mx-auto"
+                className="relative h-auto w-full hyphens-none flex flex-col items-center mx-auto"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-100px" }}

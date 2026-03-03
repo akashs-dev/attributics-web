@@ -42,9 +42,8 @@ const Partners = () => {
                                 style={{ fontSize: 'clamp(1.8rem, 4vw, 4.2rem)', fontWeight: 600, lineHeight: 1.1 }}
                                 {...fadeUp(0.08)}
                             >
-                                {partners.headline}
-                                <br />
-                                <span className="highlight">{partners.highlighted}</span>
+                                <span className="highlight">{partners.headline}</span>
+                                {" "}{partners.highlighted}
                             </motion.h2>
 
                             <motion.p
@@ -101,11 +100,11 @@ const Partners = () => {
 
 // ─── Logo grid ────────────────────────────────────────────────────────────────
 const PartnersLogoGrid = () => (
-    <div className="w-full grid grid-cols-2 gap-4 sm:gap-6 lg:gap-8 p-5 sm:p-8 lg:p-12">
+    <div className="w-full grid grid-cols-2 flex items-center justify gap-4 sm:gap-6 lg:gap-8 p-5 sm:p-8 lg:p-12">
         {partners.logos.map((logo, i) => (
             <motion.div
                 key={i}
-                className="w-full aspect-[2/1] rounded-2xl sm:rounded-3xl shadow-md flex items-center justify-center z-10 bg-white"
+                className="w-full aspect-[7/3] rounded-2xl sm:rounded-3xl shadow-md flex items-center justify-center z-10 bg-white"
                 initial={{ opacity: 0, y: 18 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.1 }}

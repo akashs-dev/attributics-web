@@ -46,9 +46,9 @@ export const vision = {
 // METRICS CARDS
 export const metricCards = [
     { metric: 20, unit: "%", postive: true, subheadline: "Peak Revenue Growth" },
-    { metric: 25, unit: "%", postive: true, subheadline: "CRM-Driven Uplift" },
+    { metric: 50, unit: "%", postive: true, subheadline: "CRM-Driven Uplift" },
     { metric: 15, unit: "%", postive: true, subheadline: "Customer Lifetime Value" },
-    { metric: 60, unit: "%", postive: false, subheadline: "Faster Execution" }
+    { metric: 3, unit: "X", postive: true, subheadline: "Faster Execution" }
 ]
 
 // TEAM MEMBERS

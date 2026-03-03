@@ -32,20 +32,19 @@ const MobileLayout = ({ problems }) => (
     <div className="w-full">
       {/* Header */}
       <div className="mb-8 sm:mb-12 px-1">
-        <span className="block section-eyebrow mb-4 sm:mb-5">The Challenge</span>
+        <span className="block section-eyebrow mb-4 sm:mb-5">{features.eyebrow}</span>
         <h2
           className="section-title"
           style={{ fontSize: "clamp(2rem, 8vw, 3rem)", fontWeight: 600 }}
         >
-          Closing The Gap From{" "}
-          <span className="highlight">Insight To Action.</span>
+          {features.headline}{" "}
+          <span className="highlight">{features.highlighted}</span>
         </h2>
         <p
           className="mt-4 section-description"
           style={{ fontSize: "clamp(0.95rem, 3vw, 1.2rem)" }}
         >
-          See how our autonomous agents solve the biggest bottlenecks in modern
-          marketing.
+          {features.description}
         </p>
       </div>
 
@@ -127,7 +126,7 @@ const DesktopLayout = ({ problems }) => {
             {/* ── LEFT: static ── */}
             <div className="shrink-0">
               <span className="block section-eyebrow mb-5 lg:mb-7">
-                The Challenge
+                {features.eyebrow}
               </span>
               <h2
                 className="section-title"
@@ -137,18 +136,15 @@ const DesktopLayout = ({ problems }) => {
                   lineHeight: 1.1,
                 }}
               >
-                Closing The Gap{" "}
+                {features.headline}{" "}
                 <br />
-                From{" "}
-                <br />
-                <span className="highlight">Insight To Action.</span>
+                <span className="highlight">{features.highlighted}</span>
               </h2>
               <p
                 className="mt-5 section-description"
                 style={{ fontSize: "clamp(1rem, 1.2vw, 1.4rem)" }}
               >
-                Scroll to see how our autonomous agents solve the biggest
-                bottlenecks in modern marketing.
+                {features.description}
               </p>
 
               <StepIndicator2Style1

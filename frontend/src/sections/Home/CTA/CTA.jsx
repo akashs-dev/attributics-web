@@ -1,9 +1,9 @@
 import Block from '../../../components/layout/Block/Block';
-import { audit } from '../../../constants/contact';
 import { useLocation } from "react-router-dom";
 import Calendar from '../../../components/Calendar/Calendar';
 import { CheckCircle2 } from '../../../components/Icons/Icons';
 import { motion } from 'motion/react';
+import { cta } from '../../../constants/home';
 
 const fadeUp = {
     hidden: { opacity: 0, y: 24 },
@@ -13,14 +13,6 @@ const fadeUp = {
         transition: { duration: 0.55, ease: [0.25, 0.1, 0.25, 1], delay },
     }),
 };
-
-const CHECKLIST = [
-    'Your current lifecycle and retention challenges',
-    'Where data silos are limiting performance',
-    'How to turn automation into intelligent personalization',
-    'Practical steps toward measurable growth',
-    'What meaningful progress would look like for your team',
-];
 
 const CTA = () => {
     const location = useLocation();
@@ -39,7 +31,7 @@ const CTA = () => {
                         whileInView="visible"
                         viewport={{ once: true }}
                     >
-                        {audit.eyebrow}
+                        {cta.eyebrow}
                     </motion.p>
 
                     <motion.h1
@@ -51,28 +43,27 @@ const CTA = () => {
                         whileInView="visible"
                         viewport={{ once: true }}
                     >
-                        If These Questions Resonate,
-                        <br />
-                        <span className="highlight">We Should Talk.</span>
+                        {cta.headline}{" "}
+                        <span className="highlight">{cta.highlighted}</span>
                     </motion.h1>
 
                     <motion.p
                         className="section-description mb-4"
-                        style={{ fontWeight: 600, fontSize: 'clamp(1rem, 1.5vw, 1.6rem)' }}
+                        style={{ fontWeight: 600, fontSize: 'clamp(1rem, 1.5vw, 1.3rem)' }}
                         variants={fadeUp}
                         custom={0.25}
                         initial="hidden"
                         whileInView="visible"
                         viewport={{ once: true }}
                     >
-                        Here's what we'll cover:
+                        {cta.checklist.headline}
                     </motion.p>
 
                     <div
                         className="section-description flex flex-col gap-3 sm:gap-4"
                         style={{ fontSize: 'clamp(0.875rem, 1.2vw, 1.05rem)' }}
                     >
-                        {CHECKLIST.map((item, i) => (
+                        {cta.checklist.items.map((item, i) => (
                             <motion.span
                                 key={i}
                                 className="flex flex-row gap-2 items-start"

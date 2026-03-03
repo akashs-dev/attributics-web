@@ -63,15 +63,15 @@ const FlowSection = () => {
             className="text-center mb-10 md:mb-12"
           >
             <h2 className="section-eyebrow">
-              Agentic AI at Work
+              {agentic.eyebrow}
             </h2>
             <h1 className="section-title" style={{fontSize: '4.2rem', fontWeight: '600'}}>
-              From Engagement
+              {agentic.headline}
               <br />
-              <span className='highlight'>To Life Time Value</span>
+              <span className='highlight'>{agentic.highlighted}</span>
             </h1>
             <p className="mt-8 section-description lg:max-w-[60%] mx-auto">
-              A continuous, self-optimizing architecture that transforms raw engagement into measurable revenue through intelligent automation.
+              {agentic.description}
             </p>
           </motion.div>
   

@@ -103,33 +103,25 @@ export const metrics = {
 // AGENTIC AI FLOW
 export const agentic = {
     eyebrow: 'Agentic AI at work',
-    headline: 'From Engagement',
-    highlighted: 'To Life Time Value',
-    description: "",
+    // Autonomous Execution Across the Revenue Lifecycle
+    // Autonomous Execution That Drives Lifetime Value
+    headline: 'Autonomous Execution That',
+    highlighted: 'Drives Lifetime Value',
+    description: "A continuous, self-optimizing architecture that transforms raw engagement into measurable revenue through intelligent automation.",
 }
 
 // FEATURE QUESTIONS
 export const features = {
-    eyebrow: '',
-    headline: 'Facing the same problems?',
-    highlighted: '',
-    description: "It's the growth that compounds. Intelligent agents continuously optimize engagement, retention, and expansion—turning every customer into a long-term value driver.",
-    questions: [
-        'How do I drive <strong>discovery conversations</strong> for the <strong>new offerings</strong> with my users / customers?</>',
-        'How can I <strong>reduce churn</strong> and increase <strong>customer lifetime value</strong>?</>',
-        'How do I <strong>personalize experiences</strong> at scale without <strong>increasing costs</strong>?</>',
-        'How can I identify <strong>upsell opportunities</strong> before customers leave?</>',
-        'How do I <strong>automate campaigns</strong> while maintaining <strong>personalization</strong>?</>',
-        'How can I turn <strong>data</strong> into <strong>actionable insights</strong> in real-time?</>',
-    ],
-    buttonText: 'Schedule a Call',
-
+    eyebrow: 'The Challenge',
+    headline: 'Closing The Gap From',
+    highlighted: 'Insight To Action.',
+    description: "See how our autonomous agents solve the biggest bottlenecks in modern marketing.",
     problems: [
         {
             id: "missing-link",
             problem: "The Missing Link",
             solution:
-                "Most marketing stacks are fragmented. Data sits in one place while execution happens in another. Our AI bridges this gap — translating customer data into autonomous, personalised actions across every touchpoint.",
+                "A unified, composable agentic framework integrates directly with existing MarTech stacks to bridge to provide real-time insights and automating complex workflows to enable deeper personalization and better business outcomes.",
             metricPrefix: "",
             metricValue: 50,
             metricSuffix: "%",
@@ -139,17 +131,17 @@ export const features = {
             id: "coordination",
             problem: "The Coordination Challenge",
             solution:
-                "Managing complex, multi-channel campaigns requires endless manual coordination. Our autonomous agents handle the orchestration — choosing the optimal channel, timing, and message for every user.",
-            metricPrefix: "3–",
+                "The central conductor for an AI workforce, managing the entire campaign lifecycle. It ensures multiple agents work in sync to execute multi-step tasks, closing the loop from insight to action in minutes.",
+            metricPrefix: "3-",
             metricValue: 5,
-            metricSuffix: "×",
+            metricSuffix: "x",
             metricLabel: "Faster Campaign Execution",
         },
         {
             id: "governance",
             problem: "The Governance Gap",
             solution:
-                "Giving AI control can feel risky. We built enterprise-grade governance into the core of our platform — set strict rules, budget limits, and brand guidelines the AI cannot override.",
+                "Security is addressed by embedding governance directly into the core architecture. Through 'staged autonomy' and 'human-in-the-loop' systems, the framework provides the transparency and accountability required for a scalable, secure, and auditable AI workforce.",
             metricPrefix: "",
             metricValue: 100,
             metricSuffix: "%",
@@ -165,19 +157,25 @@ import AmplitudeLogo from "../assets/brands/partners/amplitude.svg"
 import BrazeLogo from "../assets/brands/partners/braze.svg"
 import MoengageLogo from "../assets/brands/partners/moengage.svg"
 import OptimizelyLogo from "../assets/brands/partners/optimizely.svg"
+import TealiumLogo from "../assets/brands/partners/tealium.svg";
+import AWSLogo from "../assets/brands/partners/aws.svg";
+import AzureLogo from "../assets/brands/partners/azure.svg";
 
 export const partners = {
     eyebrow: 'our partners',
-    headline: 'Backed by',
-    highlighted: 'Industry Leaders',
-    description: "Collaborating with industry leaders to drive innovation and success. It's the growth that compounds. Intelligent agents continuously optimize engagement, retention, and expansion—turning every customer into a long-term value driver.",
+    headline: 'Seamless',
+    highlighted: 'Ecosystem Integration',
+    description: "Advanced interoperability allows for the fluid exchange of intelligence between primary data sources and execution tools, ensuring high-performance automation without displacing established investments.",
     logos: [
         ClevertapLogo,
         PhitureLogo,
         AmplitudeLogo,
         BrazeLogo,
         MoengageLogo,
-        OptimizelyLogo
+        OptimizelyLogo,
+        TealiumLogo,
+        AWSLogo,
+        AzureLogo,
     ]
 }
 
@@ -187,6 +185,25 @@ export const partners = {
 // braze
 // optimizely
 // amplitude
+
+// CTA
+export const cta = {
+    eyebrow: "schedule a call",
+    headline: "Define Your Path from Insight to Action.",
+    highlighted: "Let’s Talk.",
+    description: "",
+    checklist: {
+        headline: "Here's what we'll cover:",
+        items: [
+            'Your current lifecycle and retention challenges',
+            'Where data silos are limiting performance',
+            'How to turn automation into intelligent personalization',
+            'Practical steps toward measurable growth',
+            'What meaningful progress would look like for your team',
+        ],
+    },
+
+}
 
 // REVENUE AUTOMATION CARDS
 import cardBg01 from '../assets/revAuto/1.webp';
