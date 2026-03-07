@@ -3,7 +3,6 @@ import Block from '../../../components/layout/Block/Block';
 import { motion, AnimatePresence } from 'motion/react';
 
 import {
-    transformBlog,
     sortBlogs,
     filterBlogs,
     searchBlogs
@@ -21,7 +20,7 @@ const Local = () => {
     useEffect(() => {
         async function loadLocalBlogs() {
             try {
-                const res = await fetch(`${API_URL}/api/blogs/local`);
+                const res = await fetch(`${API_URL}/api/blogs`);
                 const data = await res.json();
 
                 console.log(data);
