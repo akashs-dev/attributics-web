@@ -67,7 +67,7 @@ const HeroTwo = () => {
     useEffect(() => {
         async function loadFeaturedBlog() {
             try {
-                const res = await fetch(`${API_URL}/api/blogs/local/featured`);
+                const res = await fetch(`${API_URL}/api/blogs/featured`);
                 const data = await res.json();
                 setFeaturedBlog(data);
             } catch (err) {
