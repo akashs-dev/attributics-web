@@ -38,7 +38,7 @@ const HomePage = () => {
         <WhiteSpace height={whiteSpaceHeight} />
 
         <Playbook />
-        <WhiteSpace height={whiteSpaceHeight} />
+        <WhiteSpace height={reducedWhiteSpaceHeight} />
 
       </Suspense>
     </main>

@@ -2,6 +2,10 @@ import { useEffect, useRef } from "react";
 import { LineChart } from "lucide-react";
 import { animate, motion, useReducedMotion } from "motion/react";
 
+const cardTitleSize = "clamp(1.25rem, 1.05rem + 0.9vw, 1.6rem)";
+const cardBodySize = "clamp(1.1rem, 0.84rem + 0.35vw, 1rem)";
+const cardMetaSize = "clamp(0.9rem, 0.69rem + 0.22vw, 0.8rem)";
+
 // ─── Counter ──────────────────────────────────────────────────────────────────
 const Counter = ({ from, to, prefix, suffix, start }) => {
   const nodeRef = useRef(null);
@@ -74,7 +78,7 @@ const ProblemCard = ({ data, isActive }) => {
       {/* Heading */}
       <motion.h3
         className="section-title mb-3 sm:mb-4 lg:mb-6"
-        style={{ fontSize: "clamp(1.1rem, 2vw, 1.6rem)", fontWeight: 600, lineHeight: 1.25 }}
+        style={{ fontSize: cardTitleSize, fontWeight: 600, lineHeight: 1.25 }}
         initial="hidden"
         animate={isActive ? "visible" : "hidden"}
         variants={fadeUp}
@@ -85,8 +89,8 @@ const ProblemCard = ({ data, isActive }) => {
 
       {/* Body text */}
       <motion.p
-        className="section-description mb-5 sm:mb-7 lg:mb-10"
-        style={{ fontSize: "clamp(0.85rem, 1.2vw, 1.05rem)", lineHeight: 1.6 }}
+        className="content-description mb-5 sm:mb-7 lg:mb-10"
+        style={{ fontSize: cardBodySize, lineHeight: 1.4, color: "#666666" }}
         initial="hidden"
         animate={isActive ? "visible" : "hidden"}
         variants={fadeUp}
@@ -128,8 +132,8 @@ const ProblemCard = ({ data, isActive }) => {
             </div>
 
             <div
-              className="section-description uppercase !text-brand"
-              style={{ fontSize: "clamp(0.7rem, 1vw, 0.9rem)" }}
+              className="content-description uppercase !text-brand"
+              style={{ fontSize: cardMetaSize }}
             >
               {data.metricLabel}
             </div>

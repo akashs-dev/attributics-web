@@ -3,6 +3,8 @@ import { motion } from 'motion/react';
 import FlowChart from './FlowChart';
 import Metrics from './Metrics';
 
+const statementTitleSize = 'clamp(2.2rem, 1.05rem + 1.5vw, 2.2rem)';
+
 const Statement = () => {
     return (
         <Block xpad='large'>
@@ -18,7 +20,8 @@ const Statement = () => {
                 <div className=" mb-12 h-auto flex flex-col items-center lg:max-w-[80%]">
                    
                     <motion.h3
-                        className="section-title text-center lg:!text-[2.2rem]"
+                        className="section-title text-center"
+                        style={{ fontSize: statementTitleSize, fontWeight: 600, lineHeight: 1.2 }}
                         initial={{ opacity: 0, y: 15 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}

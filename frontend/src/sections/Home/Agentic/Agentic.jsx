@@ -3,6 +3,8 @@ import { agentic } from '../../../constants/home';
 import { motion } from 'motion/react';
 import { Sparkles, Target, BrainCircuit, Send, LineChart } from "lucide-react";
 
+const agenticHeadlineSize = 'clamp(2.4rem, 1.2rem + 4vw, 4.2rem)';
+
 const Agentic = () => {
     return (
         <Block xpad='none'>
@@ -65,7 +67,7 @@ const FlowSection = () => {
             <h2 className="section-eyebrow">
               {agentic.eyebrow}
             </h2>
-            <h1 className="section-title" style={{fontSize: '4.2rem', fontWeight: '600'}}>
+            <h1 className="section-title" style={{ fontSize: agenticHeadlineSize, fontWeight: '600' }}>
               {agentic.headline}
               <br />
               <span className='highlight'>{agentic.highlighted}</span>

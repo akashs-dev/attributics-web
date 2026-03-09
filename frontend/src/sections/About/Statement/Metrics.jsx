@@ -3,6 +3,11 @@ import { metricCards } from '../../../constants/about';
 import { motion } from 'motion/react';
 import { TrendingUp, TrendingDown } from 'lucide-react';
 
+const metricValueSize = 'clamp(2rem, 1.25rem + 2.2vw, 3rem)';
+const metricUnitSize = 'clamp(1.15rem, 0.95rem + 1vw, 1.8rem)';
+const metricLabelSize = 'clamp(1rem, 0.84rem + 0.35vw, 1rem)';
+const metricArrowSize = 'clamp(1rem, 0.85rem + 0.55vw, 1.4rem)';
+
 const Metrics = () => {
     const [animatedMetrics, setAnimatedMetrics] = useState(metricCards.map(() => 0));
     const [isVisible, setIsVisible] = useState(false);
@@ -53,39 +58,33 @@ const Metrics = () => {
     return (
         <>
         <div ref={metricsRef} className="w-full flex flex-col">
-        {/* Cards and dividers as flat siblings in one flex row */}
-            <div className="grid grid grid-cols-2 md:grid-cols-4 gap-8 divide-x divide-slate-200 grid-cols-2 gap-0 divide-x divide-slate-300 items-center w-full lg:flex lg:items-center lg:justify-between">
+            <div className="grid grid-cols-2 md:grid-cols-4 items-center w-full">
                 {metricCards.map((card, index) => (
-                    <>
-                        {/* Card */}
-                        <motion.div
-                            key={`card-${index}`}
-                            className="z-10 py-4 px-4 flex-1 flex flex-col items-center text-center gap-2"
-                            initial={{ opacity: 0, y: 15 }}
-                            animate={isVisible ? { opacity: 1, y: 0 } : {}}
-                            transition={{
-                                duration: 0.4,
-                                delay: index * 0.1,
-                                ease: "easeOut"
-                            }}
-                        >
-                            {/* Number + unit + arrow */}
-                            <div className="flex items-center justify-center gap-1">
-                                <h1 className="section-title" style={{ fontSize: '3rem', fontWeight: '600' }}>
-                                    {animatedMetrics[index]}
-                                </h1>
-                                <h1 className="section-title" style={{ fontSize: '1.8rem' }}>
-                                    {card.unit}
-                                </h1>
-                                <GrowthArrow positive={card.postive} />
-                            </div>
+                    <motion.div
+                        key={`card-${index}`}
+                        className={`z-10 py-4 px-4 sm:px-6 flex flex-col items-center text-center gap-2 ${index % 2 === 0 ? 'border-r border-slate-300' : ''} ${index < metricCards.length - 1 ? 'md:border-r md:border-slate-300' : 'md:border-r-0'}`}
+                        initial={{ opacity: 0, y: 15 }}
+                        animate={isVisible ? { opacity: 1, y: 0 } : {}}
+                        transition={{
+                            duration: 0.4,
+                            delay: index * 0.1,
+                            ease: "easeOut"
+                        }}
+                    >
+                        <div className="flex items-center justify-center gap-1">
+                            <h1 className="section-title" style={{ fontSize: metricValueSize, fontWeight: 600 }}>
+                                {animatedMetrics[index]}
+                            </h1>
+                            <h1 className="section-title" style={{ fontSize: metricUnitSize }}>
+                                {card.unit}
+                            </h1>
+                            <GrowthArrow positive={card.postive} />
+                        </div>
 
-                            {/* Label */}
-                            <p className="section-description text-black">
-                                {card.subheadline}
-                            </p>
-                        </motion.div>
-                    </>
+                        <p className="section-description" >
+                            {card.subheadline}
+                        </p>
+                    </motion.div>
                 ))}
             </div>
         </div>
@@ -101,8 +100,8 @@ const GrowthArrow = ({ positive = true }) => {
         <Icon
             className="shrink-0"
             style={{
-                width: 22,
-                height: 22,
+                width: metricArrowSize,
+                height: metricArrowSize,
                 color: positive ? '#10b981' : '#f43f5e',
                 strokeWidth: 2.5,
             }}

@@ -205,6 +205,99 @@ export const cta = {
 
 }
 
+// PLAYBOOK
+export const playbook = {
+    eyebrow: "YOUR PLAYBOOK FOR RETENTION",
+    headline: "From Manual Campaigns To",
+    highlighted: "Intelligent Automation",
+    cards: [
+        {
+            id: "martech",
+            category: "Automotive",
+            title: "Digital Transformation with Martech",
+            description:
+                "A leading automobile manufacturer partnered with us to establish a Customer 360 view, streamline touchpoints, and enhance digital sales.",
+            icon: "workflow",
+            color: "text-indigo-600",
+            bgColor: "bg-indigo-50",
+            lineColor: "bg-indigo-500",
+            borderColor: "hover:border-indigo-200",
+        },
+        {
+            id: "cdp",
+            category: "Manufacturing",
+            title: "Transition to a Composable CDP",
+            description:
+                "A major manufacturer transitioned to a cloud-based CDP, improving scalability, reducing costs, and enabling developer-level personalization.",
+            icon: "database",
+            color: "text-cyan-600",
+            bgColor: "bg-cyan-50",
+            lineColor: "bg-cyan-500",
+            borderColor: "hover:border-cyan-200",
+        },
+        {
+            id: "crm",
+            category: "Insurance",
+            title: "Boosting Conversions with Data & CRM",
+            description:
+                "A large life insurance provider used AI-powered lead scoring and CRM workflows to reduce duplication and unlock new revenue streams.",
+            icon: "users",
+            color: "text-emerald-600",
+            bgColor: "bg-emerald-50",
+            lineColor: "bg-emerald-500",
+            borderColor: "hover:border-emerald-200",
+        },
+        {
+            id: "data",
+            category: "Retail",
+            title: "Revolutionizing Data Strategies",
+            description:
+                "A large retailer revolutionized their data strategy to improve customer engagement and maximize revenue across all digital touchpoints.",
+            icon: "barChart3",
+            color: "text-purple-600",
+            bgColor: "bg-purple-50",
+            lineColor: "bg-purple-500",
+            borderColor: "hover:border-purple-200",
+        },
+        {
+            id: "engagement",
+            category: "Fintech",
+            title: "Accelerating User Engagement",
+            description:
+                "A leading Fintech platform integrated real-time personalization to deliver hyper-relevant offers, increasing overall user engagement by over 40%.",
+            icon: "zap",
+            color: "text-[#FF5A36]",
+            bgColor: "bg-[#FF5A36]/10",
+            lineColor: "bg-[#FF5A36]",
+            borderColor: "hover:border-[#FF5A36]/30",
+        },
+        {
+            id: "engagement2",
+            category: "Fintech",
+            title: "Accelerating User Engagement",
+            description:
+                "A leading Fintech platform integrated real-time personalization to deliver hyper-relevant offers, increasing overall user engagement by over 40%.",
+            icon: "zap",
+            color: "text-[#FF5A36]",
+            bgColor: "bg-[#FF5A36]/10",
+            lineColor: "bg-[#FF5A36]",
+            borderColor: "hover:border-[#FF5A36]/30",
+        },
+        {
+            id: "engagement3",
+            category: "Fintech",
+            title: "Accelerating User Engagement",
+            description:
+                "A leading Fintech platform integrated real-time personalization to deliver hyper-relevant offers, increasing overall user engagement by over 40%.",
+            icon: "zap",
+            color: "text-[#FF5A36]",
+            bgColor: "bg-[#FF5A36]/10",
+            lineColor: "bg-[#FF5A36]",
+            borderColor: "hover:border-[#FF5A36]/30",
+        },
+    ],
+};
+
 // REVENUE AUTOMATION CARDS
 import cardBg01 from '../assets/revAuto/1.webp';
 import cardBg02 from '../assets/revAuto/2.webp';

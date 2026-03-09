@@ -12,6 +12,8 @@ import {
 
 gsap.registerPlugin(ScrollTrigger);
 
+const featuresTitleSize = "clamp(2.4rem, 1.2rem + 3.8vw, 4.2rem)";
+
 // ─── Breakpoint hook ──────────────────────────────────────────────────────────
 const useIsDesktop = () => {
   const [isDesktop, setIsDesktop] = useState(
@@ -35,14 +37,13 @@ const MobileLayout = ({ problems }) => (
         <span className="block section-eyebrow mb-4 sm:mb-5">{features.eyebrow}</span>
         <h2
           className="section-title"
-          style={{ fontSize: "clamp(2rem, 8vw, 3rem)", fontWeight: 600 }}
+          style={{ fontSize: featuresTitleSize, fontWeight: 600, lineHeight: 1.1 }}
         >
           {features.headline}{" "}
           <span className="highlight">{features.highlighted}</span>
         </h2>
         <p
           className="mt-4 section-description"
-          style={{ fontSize: "clamp(0.95rem, 3vw, 1.2rem)" }}
         >
           {features.description}
         </p>
@@ -131,7 +132,7 @@ const DesktopLayout = ({ problems }) => {
               <h2
                 className="section-title"
                 style={{
-                  fontSize: "clamp(2.2rem, 3.5vw, 4.2rem)",
+                  fontSize: featuresTitleSize,
                   fontWeight: 600,
                   lineHeight: 1.1,
                 }}
@@ -142,7 +143,6 @@ const DesktopLayout = ({ problems }) => {
               </h2>
               <p
                 className="mt-5 section-description"
-                style={{ fontSize: "clamp(1rem, 1.2vw, 1.4rem)" }}
               >
                 {features.description}
               </p>

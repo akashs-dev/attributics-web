@@ -5,6 +5,8 @@ import Button from '../../../components/ui/Button';
 import { motion } from 'motion/react';
 import { useState, useEffect, useRef } from 'react';
 
+const getStartedTitleSize = 'clamp(2.2rem, 1.2rem + 3vw, 3rem)';
+
 const GetStarted = () => {
     return (
         <Block xpad='large'>
@@ -61,7 +63,7 @@ const AuditCTA = () => {
                     </motion.div>
 
                     <motion.h3
-                        className="section-description mt-2 sm:mt-3 text-sm sm:text-base lg:text-lg"
+                        className="section-description mt-2 sm:mt-3"
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
@@ -81,9 +83,9 @@ const AuditCTA = () => {
                 >
                     <Link to="/contact">
                         <Button>
-                            <p className="section-description text-sm sm:text-base" style={{ color: 'white' }}>
+                            <p className="section-description" style={{ color: 'white' }}>
                                 {getstarted.ctaText}{' '}
-                                <span className="text-lg sm:text-xl">→</span>
+                                <span>→</span>
                             </p>
                         </Button>
                     </Link>
@@ -121,7 +123,7 @@ const SwitchingHeadline = () => {
     return (
         <div className="flex items-center justify-center">
             <div>
-                <h1 className="section-title text-center text-[1.8rem] sm:text-[2.2rem] md:text-[2.6rem] lg:text-[3rem]" style={{ fontWeight: '600' }}>
+                <h1 className="section-title text-center" style={{ fontSize: getStartedTitleSize, fontWeight: 600, lineHeight: 1.1 }}>
                     {getstarted.headline[0]}
                     <br />
                     {getstarted.headline[1]}{' '}

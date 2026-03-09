@@ -2,94 +2,22 @@ import { motion } from "motion/react";
 import { ArrowRight, Workflow, Database, Users, BarChart3, Zap } from "lucide-react";
 import Block from "../../../components/layout/Block";
 import { useRef } from "react";
-const playbooks = [
-  {
-    id: "martech",
-    category: "Automotive",
-    title: "Digital Transformation with Martech",
-    description:
-      "A leading automobile manufacturer partnered with us to establish a Customer 360 view, streamline touchpoints, and enhance digital sales.",
-    icon: Workflow,
-    color: "text-indigo-600",
-    bgColor: "bg-indigo-50",
-    lineColor: "bg-indigo-500",
-    borderColor: "hover:border-indigo-200",
-  },
-  {
-    id: "cdp",
-    category: "Manufacturing",
-    title: "Transition to a Composable CDP",
-    description:
-      "A major manufacturer transitioned to a cloud-based CDP, improving scalability, reducing costs, and enabling developer-level personalization.",
-    icon: Database,
-    color: "text-cyan-600",
-    bgColor: "bg-cyan-50",
-    lineColor: "bg-cyan-500",
-    borderColor: "hover:border-cyan-200",
-  },
-  {
-    id: "crm",
-    category: "Insurance",
-    title: "Boosting Conversions with Data & CRM",
-    description:
-      "A large life insurance provider used AI-powered lead scoring and CRM workflows to reduce duplication and unlock new revenue streams.",
-    icon: Users,
-    color: "text-emerald-600",
-    bgColor: "bg-emerald-50",
-    lineColor: "bg-emerald-500",
-    borderColor: "hover:border-emerald-200",
-  },
-  {
-    id: "data",
-    category: "Retail",
-    title: "Revolutionizing Data Strategies",
-    description:
-      "A large retailer revolutionized their data strategy to improve customer engagement and maximize revenue across all digital touchpoints.",
-    icon: BarChart3,
-    color: "text-purple-600",
-    bgColor: "bg-purple-50",
-    lineColor: "bg-purple-500",
-    borderColor: "hover:border-purple-200",
-  },
-  {
-    id: "engagement",
-    category: "Fintech",
-    title: "Accelerating User Engagement",
-    description:
-      "A leading Fintech platform integrated real-time personalization to deliver hyper-relevant offers, increasing overall user engagement by over 40%.",
-    icon: Zap,
-    color: "text-[#FF5A36]",
-    bgColor: "bg-[#FF5A36]/10",
-    lineColor: "bg-[#FF5A36]",
-    borderColor: "hover:border-[#FF5A36]/30",
-  },
-  {
-    id: "engagement2",
-    category: "Fintech",
-    title: "Accelerating User Engagement",
-    description:
-      "A leading Fintech platform integrated real-time personalization to deliver hyper-relevant offers, increasing overall user engagement by over 40%.",
-    icon: Zap,
-    color: "text-[#FF5A36]",
-    bgColor: "bg-[#FF5A36]/10",
-    lineColor: "bg-[#FF5A36]",
-    borderColor: "hover:border-[#FF5A36]/30",
-  },
-  {
-    id: "engagement3",
-    category: "Fintech",
-    title: "Accelerating User Engagement",
-    description:
-      "A leading Fintech platform integrated real-time personalization to deliver hyper-relevant offers, increasing overall user engagement by over 40%.",
-    icon: Zap,
-    color: "text-[#FF5A36]",
-    bgColor: "bg-[#FF5A36]/10",
-    lineColor: "bg-[#FF5A36]",
-    borderColor: "hover:border-[#FF5A36]/30",
-  },
-];
+import { playbook } from "../../../constants/home";
 
 import ScrollFade from "../../../components/ScrollFade/ScrollFade";
+
+const ICONS = {
+  workflow: Workflow,
+  database: Database,
+  users: Users,
+  barChart3: BarChart3,
+  zap: Zap,
+};
+
+const playbookTitleSize = "clamp(2.4rem, 1.2rem + 3.8vw, 4.0rem)";
+const playbookCardTitleSize = "clamp(1.25rem, 1.05rem + 0.9vw, 1.6rem)";
+const playbookCardDescriptionSize = "clamp(0.92rem, 0.84rem + 0.35vw, 1rem)";
+const playbookCardBadgeSize = "clamp(0.75rem, 0.69rem + 0.22vw, 0.8rem)";
 
 const Playbook = () => {
 
@@ -105,11 +33,11 @@ const Playbook = () => {
             transition={{ duration: 0.6 }}
           >
             <p className="section-eyebrow mb-6 block">
-              YOUR PLAYBOOK FOR RETENTION
+              {playbook.eyebrow}
             </p>
-            <h2 className=" section-title lg:!text-[3rem]">
-              From Manual Campaigns To <br />
-              <span className="highlight">Intelligent Automation</span>
+            <h2 className="section-title" style={{ fontSize: playbookTitleSize, fontWeight: 600, lineHeight: 1.1 }}>
+              {playbook.headline} <br />
+              <span className="highlight">{playbook.highlighted}</span>
             </h2>
           </motion.div>
         </div>
@@ -123,7 +51,7 @@ const Playbook = () => {
                 ref={scrollRef}
                 className="pt-12 pb-22 flex items-stretch overflow-y-hidden overflow-x-auto snap-x snap-mandatory gap-4 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
                 >
-                {playbooks.map((item, idx) => (
+                {playbook.cards.map((item, idx) => (
                     <PlaybookCard key={item.id + idx} item={item} idx={idx} />
                 ))}
                 </div>
@@ -136,7 +64,7 @@ const Playbook = () => {
 };
 
 const PlaybookCard = ({ item, idx }) => {
-  const Icon = item.icon;
+  const Icon = ICONS[item.icon] || Zap;
 
   return (
     <motion.div
@@ -173,17 +101,17 @@ const PlaybookCard = ({ item, idx }) => {
           <div className={`w-12 h-12 rounded-2xl ${item.bgColor} flex items-center justify-center transition-transform duration-500 group-hover:scale-110 group-hover:-rotate-3 shadow-sm shrink-0`}>
             <Icon className={`w-6 h-6 ${item.color}`} />
           </div>
-          <span className="inline-flex px-3 py-1 rounded-full section-eyebrow bg-slate-100 shrink-0" style={{fontSize: '0.9rem', fontWeight: '500'}}>
+          <span className="inline-flex px-3 py-1 rounded-full section-eyebrow bg-slate-100 shrink-0" style={{ fontSize: playbookCardBadgeSize, fontWeight: 500 }}>
             {item.category}
           </span>
         </div>
 
         {/* Text content — grows naturally */}
         <div className="flex flex-col gap-3 flex-1">
-          <h3 className="section-title" style={{ fontSize: "1.4rem" }}>
+          <h3 className="section-title" style={{ fontSize: playbookCardTitleSize }}>
             {item.title}
           </h3>
-          <p className="section-description" style={{ fontSize: "1.1rem" }}>
+          <p className="content-description" style={{ fontSize: playbookCardDescriptionSize, color: "#666666" }}>
             {item.description}
           </p>
         </div>

@@ -4,6 +4,7 @@ import { motion } from 'motion/react';
 
 const EASE = [0.22, 1, 0.36, 1];
 const DUR  = 0.65;
+const partnersTitleSize = 'clamp(2.4rem, 1.2rem + 3.8vw, 4.2rem)';
 
 const fadeUp = (delay = 0) => ({
     initial:     { opacity: 0, y: 24 },
@@ -39,7 +40,7 @@ const Partners = () => {
 
                             <motion.h2
                                 className="section-title mb-3 sm:mb-4"
-                                style={{ fontSize: 'clamp(1.8rem, 4vw, 4.2rem)', fontWeight: 600, lineHeight: 1.1 }}
+                                style={{ fontSize: partnersTitleSize, fontWeight: 600, lineHeight: 1.1 }}
                                 {...fadeUp(0.08)}
                             >
                                 <span className="highlight">{partners.headline}</span>
@@ -48,7 +49,6 @@ const Partners = () => {
 
                             <motion.p
                                 className="section-description"
-                                style={{ fontSize: 'clamp(0.95rem, 1.5vw, 1.5rem)', lineHeight: 1.6 }}
                                 {...fadeUp(0.16)}
                             >
                                 {partners.description}
@@ -101,35 +101,40 @@ const Partners = () => {
 // ─── Logo grid ────────────────────────────────────────────────────────────────
 const PartnersLogoGrid = () => (
     <div className="w-full grid grid-cols-2 flex items-center justify gap-4 sm:gap-6 lg:gap-8 p-5 sm:p-8 lg:p-12">
-        {partners.logos.map((logo, i) => (
-            <motion.div
-                key={i}
-                className="w-full aspect-[7/3] rounded-2xl sm:rounded-3xl shadow-md flex items-center justify-center z-10 bg-white"
-                initial={{ opacity: 0, y: 18 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.1 }}
-                transition={{
-                    duration: DUR,
-                    ease: EASE,
-                    delay: 0.28 + i * 0.06,
-                }}
-                whileHover={{
-                    y: -4,
-                    boxShadow: '0 12px 28px rgba(0,0,0,0.10)',
-                    transition: { duration: 0.25, ease: 'easeOut' },
-                }}
-            >
-                <img
-                    src={logo}
-                    alt={`Partner logo ${i + 1}`}
-                    className="object-contain"
-                    style={{
-                        maxHeight: 'clamp(1.5rem, 3vw, 2.5rem)',
-                        maxWidth: '65%',
+        {partners.logos.map((logo, i) => {
+            const isOddLastLogo =
+                partners.logos.length % 2 === 1 && i === partners.logos.length - 1;
+
+            return (
+                <motion.div
+                    key={i}
+                    className={`aspect-[7/3] rounded-2xl sm:rounded-3xl shadow-md flex items-center justify-center z-10 bg-white ${isOddLastLogo ? 'col-span-2 justify-self-center w-[calc(50%-0.5rem)] sm:w-[calc(50%-0.75rem)] lg:w-[calc(50%-1rem)]' : 'w-full'}`}
+                    initial={{ opacity: 0, y: 18 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, amount: 0.1 }}
+                    transition={{
+                        duration: DUR,
+                        ease: EASE,
+                        delay: 0.28 + i * 0.06,
                     }}
-                />
-            </motion.div>
-        ))}
+                    whileHover={{
+                        y: -4,
+                        boxShadow: '0 12px 28px rgba(0,0,0,0.10)',
+                        transition: { duration: 0.25, ease: 'easeOut' },
+                    }}
+                >
+                    <img
+                        src={logo}
+                        alt={`Partner logo ${i + 1}`}
+                        className="object-contain"
+                        style={{
+                            maxHeight: 'clamp(1.5rem, 3vw, 2.5rem)',
+                            maxWidth: '65%',
+                        }}
+                    />
+                </motion.div>
+            );
+        })}
     </div>
 );
 

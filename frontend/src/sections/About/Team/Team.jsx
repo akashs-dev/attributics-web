@@ -5,6 +5,10 @@ import useEmblaCarousel from 'embla-carousel-react';
 import Autoplay from 'embla-carousel-autoplay';
 import WheelGestures from 'embla-carousel-wheel-gestures';
 
+const teamTitleSize = 'clamp(2.4rem, 1.25rem + 3vw, 3.2rem)';
+const teamMemberNameSize = 'clamp(1.2rem, 1.06rem + 0.6vw, 1.5rem)';
+const teamMemberRoleSize = 'clamp(0.75rem, 0.69rem + 0.22vw, 0.8rem)';
+
 const Team = () => {
     return (
         <Block xpad='large'>
@@ -25,7 +29,8 @@ const Team = () => {
                         {team.eyebrow}
                     </motion.p>
                     <motion.h1
-                        className='section-title lg:!text-[3.2rem]'
+                        className='section-title'
+                        style={{ fontSize: teamTitleSize, fontWeight: 600, lineHeight: 1.1 }}
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
@@ -79,10 +84,10 @@ function LeadershipTeam({ teamMembers }) {
                         className="min-w-[280px] md:min-w-[320px] h-[420px] snap-center shrink-0 bg-[#F5F2EB] rounded-[2rem] p-8 flex flex-col relative overflow-hidden group"
                     >
                         <div className="flex justify-between items-start z-10 relative">
-                            <h3 className="text-xl font-display font-bold text-slate-900 w-1/2 leading-tight">
+                            <h3 className="section-title text-slate-900 w-1/2 leading-tight" style={{ fontSize: teamMemberNameSize, fontWeight: 600 }}>
                                 {member.name}
                             </h3>
-                            <span className="text-xs font-bold tracking-wider uppercase text-slate-500">
+                            <span className="section-eyebrow text-slate-500" style={{ fontSize: teamMemberRoleSize, fontWeight: 600 }}>
                                 {member.role}
                             </span>
                         </div>

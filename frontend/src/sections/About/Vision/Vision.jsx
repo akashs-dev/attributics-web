@@ -3,6 +3,8 @@ import Block from '../../../components/layout/Block';
 import { motion } from 'motion/react';
 import {CheckCircle} from 'lucide-react';
 
+const visionHeadingSize = 'clamp(2.4rem, 1.12rem + 0.8vw, 2rem)';
+
 const Vision = () => {
     return (
         <Block xpad='large'>
@@ -31,32 +33,34 @@ const Vision = () => {
                         transition={{ duration: 0.6 }}
                         className="order-1 lg:order-2"
                     >
-                        <span className="text-xs font-bold tracking-[0.3em] uppercase text-slate-400 mb-4 sm:mb-5 lg:mb-6 block">
+                        <span
+                            className="section-eyebrow mb-4 sm:mb-5 lg:mb-6 block"
+                        >
                             {vision.vissionMission.eyebrow}
                         </span>
                         
-                        <h3 className="vision-title mb-3 sm:mb-4" style={{fontWeight: '600'}}>
+                        <h3 className="section-title mb-3 sm:mb-4" style={{ fontWeight: 600, fontSize: visionHeadingSize }}>
                             {vision.vissionMission.vision.headline}
                         </h3>
                         <p className="mb-6 sm:mb-8 lg:mb-10 section-description">
                             {vision.vissionMission.vision.description}
                         </p>
 
-                        <h3 className="text-xl sm:text-2xl lg:text-3xl font-display font-bold text-slate-900 mb-3 sm:mb-4">
+                        <h3 className="section-title mb-3 sm:mb-4" style={{ fontWeight: 600, fontSize: visionHeadingSize }}>
                             {vision.vissionMission.mission.headline}
                         </h3>
-                        <p className="text-slate-600 text-base sm:text-lg leading-relaxed mb-4 sm:mb-6">
+                        <p className="section-description mb-4 sm:mb-6">
                             {vision.vissionMission.mission.description[0]}
                         </p>
-                        <p className="text-slate-600 text-base sm:text-lg leading-relaxed mb-4 sm:mb-6">
+                        <p className="section-description mb-4 sm:mb-6">
                             {vision.vissionMission.mission.description[1]}
                         </p>
                         
                         <ul className="space-y-3 sm:space-y-4">
                         {vision.vissionMission.mission.points.map((item, idx) => (
                             <li key={idx} className="flex items-start gap-2 sm:gap-3">
-                            <CheckCircle className='text-brand shrink-0 w-5 h-5 sm:w-6 sm:h-6 mt-0.5' style={{fontWeight: '900'}} />
-                            <span className="text-slate-700 text-base sm:text-lg">{item}</span>
+                                <CheckCircle className='text-brand shrink-0 w-5 h-5 sm:w-6 sm:h-6 mt-0.5' style={{fontWeight: '900'}} />
+                                <span className="section-description">{item}</span>
                             </li>
                         ))}
                         </ul>

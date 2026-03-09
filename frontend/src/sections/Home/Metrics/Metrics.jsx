@@ -12,6 +12,10 @@ const fadeUp = (delay = 0) => ({
     transition: { duration: 0.55, ease: [0.25, 0.1, 0.25, 1], delay },
 });
 
+const metricHeadlineSize = 'clamp(2.4rem, 1.1rem + 3vw, 3rem)';
+const metricStatSize = 'clamp(2rem, 1.25rem + 2.8vw, 3.5rem)';
+const metricCardTitleSize = 'clamp(1rem, 0.8rem + 1.1vw, 1.5rem)';
+
 const MetricCard = ({
         study,
         index,
@@ -65,11 +69,11 @@ const MetricCard = ({
         >
           <div className="flex flex-col h-full">
             <div>
-              <h2 className="section-title" style={{ fontSize: '3.5rem' }}>
+              <h2 className="section-title" style={{ fontSize: metricStatSize }}>
                 <span className="highlight">{study.stat}</span>
               </h2>
 
-              <h2 className="section-title" style={{ fontSize: '1.5rem' }}>
+              <h2 className="section-title" style={{ fontSize: metricCardTitleSize }}>
                 {study.title}
               </h2>
 
@@ -115,7 +119,7 @@ const Metrics = () => {
             className="flex-[4] text-center flex justify-center items-center lg:max-w-[60%] mx-auto mb-8"
             {...fadeUp(0)}
           >
-            <h2 className='section-title' style={{fontSize: '3rem'}}>
+            <h2 className='section-title' style={{ fontSize: metricHeadlineSize }}>
               {metrics.headline}{' '}
               <span className="highlight">{metrics.highlightedText}</span>
             </h2>

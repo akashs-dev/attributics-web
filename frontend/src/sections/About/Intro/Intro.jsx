@@ -2,6 +2,8 @@ import {vision} from '../../../constants/about';
 import Block from '../../../components/layout/Block';
 import { motion } from 'motion/react';
 
+const introTitleSize = 'clamp(2.4rem, 1.2rem + 3.8vw, 4.2rem)';
+
 const Intro = () => {
     return (
         <Block xpad='large' topMargin='large'>
@@ -17,7 +19,7 @@ const Intro = () => {
                     <span className="section-eyebrow mb-4 sm:mb-5 lg:mb-6 block">
                         {vision.whoAreWe.eyebrow}
                     </span>
-                    <h1 className="mb-4 section-title">
+                    <h1 className="mb-4 section-title" style={{ fontSize: introTitleSize, fontWeight: 600, lineHeight: 1.1 }}>
                         {vision.whoAreWe.headline}
                         <br />
                         <span className="highlight">{vision.whoAreWe.highlightedText}</span>
