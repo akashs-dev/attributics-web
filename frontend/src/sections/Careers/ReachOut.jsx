@@ -1,4 +1,4 @@
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Send } from "lucide-react";
 import { typography } from "../../constants/global";
 import {Sparkles} from "lucide-react";
 import { motion } from 'motion/react';
@@ -34,7 +34,7 @@ const ReachOut = () => {
                     <Link to="/contact" onClick={() => setIsMobileMenuOpen(false)}>
                         <Button size="lg" className="group relative overflow-hidden transition-all hover:pr-12">
                             <p className="section-description relative z-10 flex items-center gap-2" style={{color: 'white'}}>
-                                <Sparkles size={18} className="text-brand" />
+                                <Send size={18} className="text-brand" />
                                 Reach Out To Us
                             </p>
                             <ArrowRight className="absolute right-4 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-all" size={20} />

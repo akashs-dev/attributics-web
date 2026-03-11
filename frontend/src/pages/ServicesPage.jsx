@@ -14,7 +14,7 @@ const ServicesPage = () => {
     <main style={{overflow: 'hidden'}}>
       <Suspense fallback={<GlobalLoader />}>
         <Hero />
-        <WhiteSpace height={whiteSpaceHeight} />
+        <WhiteSpace height={reducedWhiteSpaceHeight} />
 
         <LogoCloud />
         <WhiteSpace height={reducedWhiteSpaceHeight} />

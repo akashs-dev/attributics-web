@@ -2,6 +2,8 @@ import { motion } from "motion/react";
 import { ArrowRight } from "lucide-react";
 import Block from "../../components/layout/Block";
 import { typography } from "../../constants/global";
+import ScrollFade from "../../components/ScrollFade/ScrollFade";
+import { useRef } from "react";
 
 const featuredTitleSize = "clamp(2.4rem, 1.4rem + 3vw, 3.4rem)";
 const featuredBodySize = "clamp(1.2rem, 0.85rem + 0.45vw, 1.2rem)";
@@ -41,9 +43,11 @@ const featuredResources = [
 ];
 
 const Featured = () => {
+    const scrollRef = useRef(null);
+    
     return (
         <>
-            <Block xpad="large" topMargin="large">
+            <Block xpad="medium" topMargin="large">
             <section className="container mb-16">
                 <motion.div 
                 initial={{ opacity: 0, y: 20 }}
@@ -67,8 +71,9 @@ const Featured = () => {
             </section>
         
             <section className="container relative">
+                <ScrollFade targetRef={scrollRef} fadeSize={32} />
                 
-                <div className="flex overflow-x-auto snap-x snap-mandatory gap-6 pb-8 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+                <div ref={scrollRef} className="flex overflow-x-auto snap-x snap-mandatory gap-6 pb-8 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
                 {featuredResources.map((resource, idx) => (
                     <motion.div
                     key={resource.id}

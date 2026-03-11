@@ -39,23 +39,23 @@ const recentArticles = [
 
 const Recents = () => {
     return (
-        <Block xpad="none" topMargin="none">
         <section className="bg-[#f7f7f7] pt-24 pb-42 border-t border-slate-100">
-            <div className="container mx-auto px-6 max-w-7xl">
-            <div className="text-center mb-16">
-                <h2
-                    className="section-title mb-4"
-                    style={typography.title.XXL}
-                >
-                Recently <span className="highlight">Added</span>
-                </h2>
-                <p
-                    className="section-description"
-                    style={typography.desc.Normal}
-                >
-                We provide tips and resources from industry leaders. For real.
-                </p>
-            </div>
+        <Block xpad="large" topMargin="none">
+        <div className="">
+                <div className="mb-16">
+                    <h2
+                        className="section-title mb-4"
+                        style={typography.title.XXL}
+                    >
+                    Recently <span className="highlight">Added</span>
+                    </h2>
+                    <p
+                        className="section-description"
+                        style={typography.desc.Normal}
+                    >
+                    We provide tips and resources from industry leaders. For real.
+                    </p>
+                </div>
 
             <div className="grid md:grid-cols-3 gap-8">
                 {recentArticles.map((article, idx) => (
@@ -108,8 +108,8 @@ const Recents = () => {
                 ))}
             </div>
             </div>
-        </section>
-        </Block>
+            </Block>
+            </section>
     );
 };
 

@@ -1,10 +1,10 @@
-import Exclude from '../assets/logo/Exclude.svg';
-import Wordmark from '../assets/logo/Attributics-Wordmark.png';
+import Logo from '../assets/logo/AttributicsLogo.png';
+import Wordmark from '../assets/logo/AttributicsWordmark.png';
 
 export const brand = {
-    logo: Exclude,
+    logo: Logo,
     wordmark: Wordmark,
-    name: 'Attributics',
+    name: 'Attributics Tech Pvt. Ltd.',
     tagline: 'AI-Powered Revenue Intelligence',
 }
 
@@ -26,21 +26,12 @@ export const nav = {
     },
 }
 
-export const newsletter = {
-    headline: 'Stay ahead with AI intelligence tips for your business growth.',
-    placeholder: 'Enter your email',
-    cta: 'Subscribe',
-    disclaimer: 'No spam. Unsubscribe anytime.',
-}
-
-import l from '../components/Icons/linkedin.svg';
-
 export const footer = {
     socials: [
         {
-            logo: null,
+            logo: "https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png",
             name: "LinkedIn",
-            href: "",
+            href: "https://www.linkedin.com/company/attributicslab/",
         }
     ],
     links: [
@@ -48,21 +39,34 @@ export const footer = {
             title: 'Company',
             items: [
                 {
+                    label: 'Home',
+                    href: '/',
+                },
+                {
+                    label: 'Services',
+                    href: '/services',
+                },
+                {
                     label: 'About',
                     href: '/about',
+                },
+            ]
+        },
+        {
+            title: 'Resources',
+            items: [
+                {
+                    label: 'Resources',
+                    href: '/resources',
                 },
                 {
                     label: 'Careers',
                     href: '/careers',
                 },
                 {
-                    label: 'Resources',
-                    href: '/resources',
-                },
-                {
-                    label: 'Privacy',
+                    label: 'Privacy Policy',
                     href: '/privacy',
-                }
+                },
             ]
         }
     ],

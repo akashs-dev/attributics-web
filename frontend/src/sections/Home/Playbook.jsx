@@ -46,7 +46,7 @@ const Playbook = () => {
         <div className="relative w-full z-10 h-full">
             <div className="relative">
                 
-                <ScrollFade targetRef={scrollRef} fadeSize={100} />
+                <ScrollFade targetRef={scrollRef} fadeSize={32} />
 
                 <div
                 ref={scrollRef}

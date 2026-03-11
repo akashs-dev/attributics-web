@@ -5,7 +5,7 @@ import Button from '../../components/ui/Button';
 import { motion } from 'motion/react';
 import { useState, useEffect, useRef } from 'react';
 import { typography } from "../../constants/global";
-import {Sparkles, ArrowRight, TrendingUp} from "lucide-react";
+import {Sparkles, ArrowRight, Webhook} from "lucide-react";
 
 const getStartedTitleSize = 'clamp(2.2rem, 1.2rem + 3vw, 3rem)';
 
@@ -86,7 +86,7 @@ const AuditCTA = () => {
                     <Link to="/contact" onClick={() => setIsMobileMenuOpen(false)}>
                         <Button size="lg" className="group relative overflow-hidden transition-all hover:pr-12">
                             <p className="section-description relative z-10 flex items-center gap-2" style={{color: 'white'}}>
-                                <Sparkles size={18} className="text-brand" />
+                                <Webhook size={22} className="text-brand" />
                                 {getstarted.ctaText}{' '}
                             </p>
                             <ArrowRight className="absolute right-4 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-all" size={20} />

@@ -1,10 +1,9 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { hero } from "../../constants/services";
 import Block from "../../components/layout/Block";
 import { typography } from "../../constants/global";
 
-const heroTitleSize = "clamp(2.6rem, 1.4rem + 6vw, 5.5rem)";
 const infoTitleSize = "clamp(1.15rem, 0.95rem + 0.8vw, 1.4rem)";
 const infoDescSize = "clamp(1.1rem, 0.95rem + 0.8vw, 1.1rem)";
 const infoEyebrowSize = "clamp(1rem, 0.95rem + 0.8vw, 1rem)";
@@ -14,6 +13,9 @@ const modalTitleSize = "clamp(1.6rem, 1.1rem + 2vw, 2.3rem)";
 const Hero = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [hoveredIndex, setHoveredIndex] = useState(0);
+    const [isMobile, setIsMobile] = useState(false);
+    const cardRefs = useRef([]);
+    const visibilityRef = useRef(new Map());
   
     const bgColors = [
       "bg-orange-50",
@@ -22,19 +24,51 @@ const Hero = () => {
       "bg-blue-50",
       "bg-rose-50"
     ];
-  
-    const scrollToSection = (id) => {
-      const element = document.getElementById(id);
-      if (element) {
-        const offset = 100; // Account for sticky nav
-        const elementPosition = element.getBoundingClientRect().top;
-        const offsetPosition = elementPosition + window.pageYOffset - offset;
-        window.scrollTo({
-          top: offsetPosition,
-          behavior: "smooth"
-        });
+
+    useEffect(() => {
+      if (typeof window === "undefined") return;
+      const mq = window.matchMedia("(max-width: 767px)");
+      const update = () => setIsMobile(mq.matches);
+      update();
+      if (mq.addEventListener) {
+        mq.addEventListener("change", update);
+        return () => mq.removeEventListener("change", update);
       }
-    };
+      mq.addListener(update);
+      return () => mq.removeListener(update);
+    }, []);
+
+    useEffect(() => {
+      if (!isMobile) return;
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            const idx = Number(entry.target.dataset.index);
+            if (Number.isNaN(idx)) return;
+            visibilityRef.current.set(idx, entry.isIntersecting ? entry.intersectionRatio : 0);
+          });
+
+          let bestIndex = hoveredIndex;
+          let bestRatio = -1;
+          for (const [idx, ratio] of visibilityRef.current.entries()) {
+            if (ratio > bestRatio) {
+              bestRatio = ratio;
+              bestIndex = idx;
+            }
+          }
+          if (bestRatio > 0 && bestIndex !== hoveredIndex) {
+            setHoveredIndex(bestIndex);
+          }
+        },
+        { threshold: [0.2, 0.4, 0.6, 0.8] }
+      );
+
+      cardRefs.current.forEach((el) => {
+        if (el) observer.observe(el);
+      });
+
+      return () => observer.disconnect();
+    }, [isMobile, hoveredIndex]);
   
     return (
       <>
@@ -161,15 +195,21 @@ const Hero = () => {
   
         {/* Expandable Service Modules */}
         <section className="py-12 relative z-10">
-          <div className="container mx-auto px-6 max-w-6xl">
+          <div className="container mx-auto px-4 max-w-6xl">
             <div className="bg-white rounded-[2rem] shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-100 overflow-hidden">
               {hero.services.map((service, idx) => (
                 <div 
                   key={service.id}
+                  data-index={idx}
+                  ref={(el) => {
+                    cardRefs.current[idx] = el;
+                  }}
                   className={`border-b border-slate-100 last:border-b-0 transition-colors duration-500 cursor-pointer ${hoveredIndex === idx ? bgColors[idx] : 'bg-white'}`}
-                  onMouseEnter={() => setHoveredIndex(idx)}
+                  onMouseEnter={() => {
+                    if (!isMobile) setHoveredIndex(idx);
+                  }}
                 >
-                  <div className="px-8 md:px-16 py-10 md:py-14 flex flex-col md:flex-row gap-6 md:gap-24">
+                  <div className="px-6 md:px-16 py-10 md:py-14 flex flex-col md:flex-row gap-6 md:gap-24">
                     <div className="text-slate-400 font-mono text-sm md:pt-2 section-eyebrow">
                       0{idx + 1}
                     </div>

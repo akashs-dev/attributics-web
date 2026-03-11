@@ -158,8 +158,9 @@ import BrazeLogo from "../assets/brands/partners/braze.svg"
 import MoengageLogo from "../assets/brands/partners/moengage.svg"
 import OptimizelyLogo from "../assets/brands/partners/optimizely.svg"
 import TealiumLogo from "../assets/brands/partners/tealium.svg";
-import AWSLogo from "../assets/brands/partners/aws.svg";
-import AzureLogo from "../assets/brands/partners/azure.svg";
+// import AWSLogo from "../assets/brands/partners/aws.svg";
+// import AzureLogo from "../assets/brands/partners/azure.svg";
+import ContentSqLogo from "../assets/brands/partners/contentsquare.svg"
 
 export const partners = {
     eyebrow: 'our partners',
@@ -174,7 +175,7 @@ export const partners = {
         MoengageLogo,
         OptimizelyLogo,
         TealiumLogo,
-        AWSLogo,
+        ContentSqLogo,
     ]
 }
 

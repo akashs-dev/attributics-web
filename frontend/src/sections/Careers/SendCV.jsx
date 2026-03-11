@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ArrowRight, ChevronDown, Upload, CheckCircle } from "lucide-react";
+import { ArrowRight, ChevronDown, Upload, CheckCircle, Signature } from "lucide-react";
 import Block from "../../components/layout/Block";
 import { formLinks } from "../../constants/contact";
 import { typography } from "../../constants/global";
@@ -270,17 +270,17 @@ const SendCV = () => {
                                 <button
                                     onClick={handleSubmit}
                                     disabled={status === "submitting"}
-                                    className="group relative px-8 sm:px-10 py-3 sm:py-4 text-sm sm:text-base bg-slate-900 text-white rounded-full font-semibold overflow-hidden transition-all hover:pr-12 sm:hover:pr-14 disabled:opacity-60 disabled:cursor-not-allowed"
+                                    className="group flex flex-row relative px-6 sm:px-10 py-3 sm:py-4 text-sm sm:text-base bg-slate-900 text-white rounded-full font-semibold overflow-hidden transition-all hover:pr-12 sm:hover:pr-14 disabled:opacity-60 disabled:cursor-not-allowed"
                                 >
-                                    <span className="relative z-10 flex items-center gap-2">
+                                    <p className="section-description relative z-10 flex items-center gap-2" style={{color: 'white'}}>
+                                        <Signature size={18} className="text-brand" />
                                         {status === "submitting" ? "Sending..." : "Send CV"}
-                                    </span>
+                                    </p>
                                     {status !== "submitting" && (
                                         <ArrowRight className="absolute right-5 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-all" size={20} />
                                     )}
                                 </button>
                             </div>
-
                         </div>
                     </div>
                 </section>

@@ -32,7 +32,7 @@ const Vision = () => {
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.6 }}
-                        className="order-1 lg:order-2"
+                        className="max-w-xl order-1 lg:order-2  text-justify"
                     >
                         <span
                             className="section-eyebrow mb-4 sm:mb-5 lg:mb-6 block"

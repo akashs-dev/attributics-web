@@ -24,10 +24,12 @@ const Button = ({
     className = '',
     icon,
     iconPosition = 'right',
+    disabled = false,
     ...props
 }) => {
     return (
         <button
+            disabled={disabled}
             className={`
                 inline-flex items-center justify-center font-semibold
                 rounded-full transition-all duration-200 ease-out

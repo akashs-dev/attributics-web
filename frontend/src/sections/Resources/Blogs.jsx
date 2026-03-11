@@ -3,6 +3,8 @@ import { ArrowRight } from "lucide-react";
 import Block from "../../components/layout/Block";
 import { useState } from "react";
 import { typography } from "../../constants/global";
+import ScrollFade from "../../components/ScrollFade/ScrollFade";
+import { useRef } from "react";
 
 const blogsTitleSize = "clamp(2.4rem, 1.35rem + 2.7vw, 3.4rem)";
 const blogsBodySize = "clamp(1.2rem, 0.85rem + 0.4vw, 1.2rem)";
@@ -84,106 +86,84 @@ const caseStudies = [
 ];
 
 const Blogs = () => {
-    const [activeTab, setActiveTab] = useState("Featured");
-
-    const filtered = caseStudies.filter((s) => s.type === activeTab);
+    const scrollRef = useRef(null);
 
     return (
         <>
             <Block xpad="large" topMargin="none">
-                <section className="container mb-12">
-                    <div className="flex flex-wrap items-center justify-center gap-2 md:gap-8 border-b border-slate-200">
-                        {tabs.map((tab) => (
-                            <button
-                                key={tab}
-                                onClick={() => setActiveTab(tab)}
-                                className={`pb-4 px-4 text-sm font-bold tracking-wide transition-colors relative ${
-                                    activeTab === tab ? "!text-[#FF5A36]" : "text-slate-500 hover:text-slate-800"
-                                }`}
-                            >
-                                <p className="section-eyebrow !my-0">{tab}</p>
-                                {activeTab === tab && (
-                                    <motion.div
-                                        layoutId="activeTab"
-                                        className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#FF5A36]"
-                                    />
-                                )}
-                            </button>
-                        ))}
-                    </div>
-                </section>
-
                 <section className="container relative">
-                    <div className="flex flex-col items-center text-center mb-16">
+                    <div className="flex flex-col mb-16">
                         <h2
                             className="section-title mb-6"
                             style={typography.title.XXL}
                         >
-                            Impactful <span className="highlight">Projects</span>
+                            <span className="highlight">Success Stories</span>{' '}from Our Clients
                         </h2>
                         <div className="flex items-center gap-4">
-                            <div className="h-px w-16 bg-[#FF5A36]" />
                             <p
-                                className="section-description max-w-xl text-left"
+                                className="section-description max-w-3xl text-left"
                                 style={typography.desc.Normal}
                             >
-                                We help <span className="font-bold text-slate-900">founders, startups,</span> and businesses turn their <span className="font-bold text-slate-900">ideas</span> into reality through strategy, design, and <span className="font-bold text-slate-900">collaboration.</span>
+                                We help founders, startups, and businesses turn their ideas into reality through strategy, design, and collaboration.
                             </p>
                         </div>
                     </div>
 
-                    {/* <div className="absolute left-0 top-0 bottom-0 w-8 md:w-16 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" /> */}
-                    {/* <div className="absolute right-0 top-0 bottom-0 w-8 md:w-16 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" /> */}
-
-                    <div className="flex overflow-x-auto snap-x snap-mandatory gap-8 pb-12 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
-                        <AnimatePresence mode="popLayout">
-                            {filtered.map((study, idx) => (
-                                <motion.div
-                                    key={study.id}
-                                    initial={{ opacity: 0, y: 20 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    exit={{ opacity: 0, y: -20 }}
-                                    transition={{ duration: 0.35, delay: idx * 0.07 }}
-                                    className="w-[320px] md:w-[400px] shrink-0 snap-center group flex flex-col bg-white rounded-[2rem] overflow-hidden border border-slate-100 shadow-[0_4px_20px_rgb(0,0,0,0.03)] hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)] transition-all duration-500 hover:-translate-y-1"
-                                >
-                                    <div className="h-56 overflow-hidden relative">
-                                        <div className="absolute inset-0 bg-slate-900/5 group-hover:bg-transparent transition-colors duration-500 z-10" />
-                                        <img
-                                            src={study.image}
-                                            alt={study.title}
-                                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                                        />
-                                    </div>
-                                    <div className="p-8 flex flex-col flex-grow">
-                                        <div className="flex items-center justify-between mb-4">
-                                            <span className="text-[10px] font-bold tracking-widest uppercase text-[#FF5A36] bg-[#FF5A36]/10 px-3 py-1 rounded-full">
-                                                {study.industry}
-                                            </span>
+                    <div className="relative">
+                        <ScrollFade targetRef={scrollRef} fadeSize={32} />
+                        <div
+                            ref={scrollRef}
+                            className="flex overflow-x-auto snap-x snap-mandatory gap-8 pb-12 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
+                        >
+                            <AnimatePresence mode="popLayout">
+                                {caseStudies.map((study, idx) => (
+                                    <motion.div
+                                        key={study.id}
+                                        initial={{ opacity: 0, y: 20 }}
+                                        animate={{ opacity: 1, y: 0 }}
+                                        exit={{ opacity: 0, y: -20 }}
+                                        transition={{ duration: 0.35, delay: idx * 0.07 }}
+                                        className="w-[320px] md:w-[400px] shrink-0 snap-center group flex flex-col bg-white rounded-[2rem] overflow-hidden border border-slate-100 shadow-[0_4px_20px_rgb(0,0,0,0.03)] hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)] transition-all duration-500 hover:-translate-y-1"
+                                    >
+                                        <div className="h-56 overflow-hidden relative">
+                                            <div className="absolute inset-0 bg-slate-900/5 group-hover:bg-transparent transition-colors duration-500 z-10" />
+                                            <img
+                                                src={study.image}
+                                                alt={study.title}
+                                                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                                            />
                                         </div>
-                                        <h3
-                                            className="font-display font-bold text-slate-900 mb-3 group-hover:text-[#FF5A36] transition-colors"
-                                            style={{ fontSize: blogsCardTitleSize }}
-                                        >
-                                            {study.title}
-                                        </h3>
-                                        <p
-                                            className="text-slate-500 leading-relaxed mb-8 flex-grow"
-                                            style={{ fontSize: blogsBodySize }}
-                                        >
-                                            {study.description}
-                                        </p>
-                                        <div className="mt-auto pt-6 border-t border-slate-100">
-                                            <div
-                                                className="inline-flex items-center gap-2 font-bold text-slate-900 group-hover:text-[#FF5A36] transition-colors"
+                                        <div className="p-8 flex flex-col flex-grow">
+                                            <div className="flex items-center justify-between mb-4">
+                                                <span className="text-[10px] font-bold tracking-widest uppercase text-[#FF5A36] bg-[#FF5A36]/10 px-3 py-1 rounded-full">
+                                                    {study.industry}
+                                                </span>
+                                            </div>
+                                            <h3
+                                                className="font-display font-bold text-slate-900 mb-3 group-hover:text-[#FF5A36] transition-colors"
+                                                style={{ fontSize: blogsCardTitleSize }}
+                                            >
+                                                {study.title}
+                                            </h3>
+                                            <p
+                                                className="text-slate-500 leading-relaxed mb-8 flex-grow"
                                                 style={{ fontSize: blogsBodySize }}
                                             >
-                                                View Case Study <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                                                {study.description}
+                                            </p>
+                                            <div className="mt-auto pt-6 border-t border-slate-100">
+                                                <div
+                                                    className="inline-flex items-center gap-2 font-bold text-slate-900 group-hover:text-[#FF5A36] transition-colors"
+                                                    style={{ fontSize: blogsBodySize }}
+                                                >
+                                                    View Case Study <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </motion.div>
-                            ))}
-                        </AnimatePresence>
+                                    </motion.div>
+                                ))}
+                            </AnimatePresence>
+                        </div>
                     </div>
                 </section>
             </Block>

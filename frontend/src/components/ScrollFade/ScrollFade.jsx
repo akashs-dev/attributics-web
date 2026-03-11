@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "motion/react";
 
 const ScrollFade = ({
   targetRef,
-  fadeSize = 80,
+  fadeSize = 20,
   orientation = "horizontal",
 }) => {
   const [showStartFade, setShowStartFade] = useState(false);

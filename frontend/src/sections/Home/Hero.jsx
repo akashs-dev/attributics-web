@@ -126,13 +126,6 @@ const Hero = () => {
                 </Button>
             </Link>
           </motion.div>
-  
-          {/* Carousel Indicators (Static for now as requested) */}
-          <div className="flex justify-center gap-2 mt-16">
-            <div className="w-2 h-2 rounded-full bg-slate-200" />
-            <div className="w-8 h-2 rounded-full bg-brand" />
-            <div className="w-2 h-2 rounded-full bg-slate-200" />
-          </div>
         </div>
 
        

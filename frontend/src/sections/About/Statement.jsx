@@ -25,11 +25,9 @@ const Statement = () => {
                         viewport={{ once: true }}
                         transition={{ duration: 0.5, delay: 0.2 }}
                     >
-                        Sustainable Growth is built on{" "}
-                        <span className="highlight">Data</span>,
-                        powered by <span className="highlight">Automation</span>,
-                        and scaled through{" "}
-                        <span className="highlight">Lifecycle Intelligence</span>.
+                        Sustainable Growth Powered by{' '}
+                        <span className="highlight">Data</span> and {' '}
+                        <span className="highlight">Automation</span>.
                     </motion.h3>
                 </div>
 

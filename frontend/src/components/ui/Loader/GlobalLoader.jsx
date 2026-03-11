@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from '../../../assets/logo/Attributics-Wordmark.png';
+import logo from '../../../assets/logo/AttributicsWordmark.png';
 
 const GlobalLoader = () => {
     return (

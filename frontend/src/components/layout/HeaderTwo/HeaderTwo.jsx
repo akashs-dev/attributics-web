@@ -1,8 +1,8 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import Button from '../../ui/Button';
 import { nav } from '../../../constants/other';
-import logo from '../../../assets/logo/Attributics-Wordmark.png';
+import { brand } from '../../../constants/other';
 import Block from '../Block/Block';
 
 const HeaderTwo = () => {
@@ -30,7 +30,7 @@ const HeaderTwo = () => {
             >
                 <div className={`flex-1 flex justify-start`}>
                     <Link to="/">
-                        <img src={logo} alt="Attributics Logo" className="w-auto h-8" />
+                        <img src={brand.wordmark} alt="Attributics Logo" className="w-auto h-8" />
                     </Link>
                 </div>
 
