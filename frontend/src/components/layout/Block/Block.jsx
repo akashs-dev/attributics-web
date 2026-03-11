@@ -10,6 +10,7 @@ const xPaddingMap = {
 const topMarginMap = {
   'none':  'mt-0',
   'small': 'mt-14 sm:mt-16 md:mt-20 lg:mt-25',
+  'medium': 'mt-17 sm:mt-20 md:mt-26 lg:mt-35',
   'large': 'mt-20 sm:mt-24 md:mt-32 lg:mt-45',
 };
 

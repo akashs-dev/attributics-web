@@ -1,6 +1,6 @@
 // VISION & MISSION
-import WhoAreWeImg from '../assets/team/group/whoAreWe.png';
-import VissionMissionImg from '../assets/team/group/visionMission.png';
+import VissionMissionImg from '../assets/team/group/whoAreWe.png';
+import WhoAreWeImg from '../assets/team/group/visionMission.png';
 
 export const vision = {
     whoAreWe: {

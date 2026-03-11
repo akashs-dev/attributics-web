@@ -65,8 +65,8 @@ import mainCard04 from '../assets/metrics/4.webp';
 
 export const metrics = {
     eyebrow: "",
-    headline: "Businesses Worldwide Trust Us To Help Them",
-    highlightedText: "Grow Their Revenue.",
+    headline: "Trusted Worldwide for ",
+    highlightedText: "Revenue Growth",
     description: "",
     cards: [
         {
@@ -158,8 +158,9 @@ import BrazeLogo from "../assets/brands/partners/braze.svg"
 import MoengageLogo from "../assets/brands/partners/moengage.svg"
 import OptimizelyLogo from "../assets/brands/partners/optimizely.svg"
 import TealiumLogo from "../assets/brands/partners/tealium.svg";
-import AWSLogo from "../assets/brands/partners/aws.svg";
-import AzureLogo from "../assets/brands/partners/azure.svg";
+// import AWSLogo from "../assets/brands/partners/aws.svg";
+// import AzureLogo from "../assets/brands/partners/azure.svg";
+import ContentSqLogo from "../assets/brands/partners/contentsquare.svg"
 
 export const partners = {
     eyebrow: 'our partners',
@@ -174,8 +175,7 @@ export const partners = {
         MoengageLogo,
         OptimizelyLogo,
         TealiumLogo,
-        AWSLogo,
-        AzureLogo,
+        ContentSqLogo,
     ]
 }
 
@@ -189,8 +189,8 @@ export const partners = {
 // CTA
 export const cta = {
     eyebrow: "schedule a call",
-    headline: "Define Your Path from Insight to Action.",
-    highlighted: "Let’s Talk.",
+    headline: "Build a Smarter Path to Growth.",
+    highlighted: "Let's Talk.",
     description: "",
     checklist: {
         headline: "Here's what we'll cover:",

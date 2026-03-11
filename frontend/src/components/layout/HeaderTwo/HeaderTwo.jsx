@@ -1,8 +1,8 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import Button from '../../ui/Button';
 import { nav } from '../../../constants/other';
-import logo from '../../../assets/logo/Attributics-Wordmark.png';
+import { brand } from '../../../constants/other';
 import Block from '../Block/Block';
 
 const HeaderTwo = () => {
@@ -30,7 +30,7 @@ const HeaderTwo = () => {
             >
                 <div className={`flex-1 flex justify-start`}>
                     <Link to="/">
-                        <img src={logo} alt="Attributics Logo" className="w-auto h-8" />
+                        <img src={brand.wordmark} alt="Attributics Logo" className="w-auto h-8" />
                     </Link>
                 </div>
 
@@ -142,7 +142,7 @@ const HeaderTwo = () => {
                 <div className="absolute top-20 left-4 right-4 bg-white rounded-2xl shadow-xl border border-gray-100 p-4 lg:hidden">
                     <nav className="flex flex-col gap-4">
                         {nav.links.map((link) => {
-                            const isRoute = link.href === '/' || link.href === '/about' || link.href === '/resources' || link.href === '/careers';
+                            const isRoute = link.href === '/' || link.href === '/services' || link.href === '/about' || link.href === '/resources' || link.href === '/careers';
                             const isActive = location.pathname === link.href;
 
                             return isRoute ? (

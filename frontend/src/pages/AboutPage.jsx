@@ -3,11 +3,11 @@ import GlobalLoader from '../components/ui/Loader/GlobalLoader';
 import WhiteSpace from '../components/layout/WhiteSpace/WhiteSpace';
 
 // Lazy load about sections
-const Intro = lazy(() => import('../sections/About/Intro/Intro'));
-const Statement = lazy(() => import('../sections/About/Statement/Statement'));
-const Vision = lazy(() => import('../sections/About/Vision/Vision'));
-const Team = lazy(() => import('../sections/About/Team/Team'));
-const GetStarted = lazy(() => import('../sections/About/GetStarted/GetStarted'));
+const Intro = lazy(() => import('../sections/About/Intro'));
+const Statement = lazy(() => import('../sections/About/Statement'));
+const Vision = lazy(() => import('../sections/About/Vision'));
+const Team = lazy(() => import('../sections/About/Team'));
+const GetStarted = lazy(() => import('../sections/About/GetStarted'));
 
 const reducedWhiteSpaceHeight = '10vh';
 const moreWhiteSpaceHeight = '20vh';

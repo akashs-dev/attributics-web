@@ -3,13 +3,13 @@ import GlobalLoader from '../components/ui/Loader/GlobalLoader';
 import WhiteSpace from '../components/layout/WhiteSpace/WhiteSpace';
 
 // Lazy load sections with explicit paths
-const HeroTwo = lazy(() => import('../sections/Home/HeroTwo/HeroTwo'));
-const Metrics = lazy(() => import('../sections/Home/Metrics/Metrics'));
-const Agentic = lazy(() => import('../sections/Home/Agentic/Agentic'));
-const FeaturesTwo = lazy(() => import('../sections/Home/FeaturesTwo/FeaturesTwo'));
-const Partners = lazy(() => import('../sections/Home/Partners/Partners'));
-const CTA = lazy(() => import('../sections/Home/CTA/CTA'));
-const Playbook = lazy(() => import('../sections/Home/Playbook/Playbook'));
+const Hero = lazy(() => import('../sections/Home/Hero'));
+const Metrics = lazy(() => import('../sections/Home/Metrics'));
+const Agentic = lazy(() => import('../sections/Home/Agentic'));
+const Challenge = lazy(() => import('../sections/Home/Challenge/Challenge'));
+const Partners = lazy(() => import('../sections/Home/Partners'));
+const CTA = lazy(() => import('../sections/Home/CTA'));
+const Playbook = lazy(() => import('../sections/Home/Playbook'));
 
 const reducedWhiteSpaceHeight = '10vh';
 const whiteSpaceHeight = '15vh';
@@ -19,7 +19,7 @@ const HomePage = () => {
   return (
     <main>
       <Suspense fallback={<GlobalLoader />}>
-        <HeroTwo />
+        <Hero />
         <WhiteSpace height={whiteSpaceHeight} />
         
         <Metrics />
@@ -28,7 +28,7 @@ const HomePage = () => {
         <Agentic />
         {/* <WhiteSpace height={whiteSpaceHeight} /> */}
 
-        <FeaturesTwo />
+        <Challenge />
         {/* <WhiteSpace height={whiteSpaceHeight} /> */}
         
         <Partners />

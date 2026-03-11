@@ -3,29 +3,20 @@ import GlobalLoader from '../components/ui/Loader/GlobalLoader';
 import WhiteSpace from '../components/layout/WhiteSpace/WhiteSpace';
 
 // Lazy load about sections
-const Featured = lazy(() => import('../sections/Resources/Featured'));
-const Blogs = lazy(() => import('../sections/Resources/Blogs'));
-const Recents = lazy(() => import('../sections/Resources/Recents'));
+const Policies = lazy(() => import('../sections/Privacy/Policies'));
 
 const reducedWhiteSpaceHeight = '10vh';
 const whiteSpaceHeight = '15vh';
 
-const ResourcesPage = () => {
+const ServicesPage = () => {
   return (
     <main style={{overflow: 'hidden'}}>
       <Suspense fallback={<GlobalLoader />}>
-        <Featured />
+        <Policies />
         <WhiteSpace height={whiteSpaceHeight} />
-
-        <Blogs />
-        <WhiteSpace height={reducedWhiteSpaceHeight} />
-
-        <Recents />
-        {/* <WhiteSpace height={whiteSpaceHeight} /> */}
-
       </Suspense>
     </main>
   );
 };
 
-export default ResourcesPage;
+export default ServicesPage;

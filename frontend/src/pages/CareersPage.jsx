@@ -3,21 +3,29 @@ import GlobalLoader from '../components/ui/Loader/GlobalLoader';
 import WhiteSpace from '../components/layout/WhiteSpace/WhiteSpace';
 
 // Lazy load sections with explicit paths
-const Hero = lazy(() => import('../sections/Careers/Hero/Hero'));
-const LetsGrow = lazy(() => import('../sections/Careers/LetsGrow/LetsGrow'));
+const SendCV = lazy(() => import('../sections/Careers/SendCV'));
+const Culture = lazy(() => import('../sections/Careers/Culture'));
+const LogoCloud = lazy(() => import('../sections/Careers/LogoCloud'));
+const ReachOut = lazy(() => import('../sections/Careers/ReachOut'));
 
 const reducedWhiteSpaceHeight = '10vh';
-const whiteSpaceHeight = '15vh';
+const whiteSpaceHeight = '20vh';
 
 const HomePage = () => {
     return (
         <main>
         <Suspense fallback={<GlobalLoader />}>
-            <Hero />
+            <SendCV />
+            <WhiteSpace height={reducedWhiteSpaceHeight} />
+
+            <Culture />
             <WhiteSpace height={whiteSpaceHeight} />
 
-            <LetsGrow />
+            <LogoCloud />
             <WhiteSpace height={whiteSpaceHeight} />
+
+            <ReachOut />
+            <WhiteSpace height={reducedWhiteSpaceHeight} />
 
         </Suspense>
         </main>
