@@ -10,10 +10,8 @@ const infoTitleSize = "clamp(1.15rem, 0.95rem + 0.8vw, 1.4rem)";
 const infoDescSize = "clamp(1.1rem, 0.95rem + 0.8vw, 1.1rem)";
 const infoEyebrowSize = "clamp(1rem, 0.95rem + 0.8vw, 1rem)";
 const serviceTitleSize = "clamp(1.6rem, 1.2rem + 1.8vw, 2.4rem)";
-const modalTitleSize = "clamp(1.6rem, 1.1rem + 2vw, 2.3rem)";
 
 const Hero = () => {
-    const [isModalOpen, setIsModalOpen] = useState(false);
     const [hoveredIndex, setHoveredIndex] = useState(0);
     const [isMobile, setIsMobile] = useState(false);
     const cardRefs = useRef([]);

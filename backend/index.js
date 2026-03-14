@@ -500,11 +500,17 @@ const upload = multer({
 const smtpMailer = {
   name: "smtp",
   async sendFormEmail({ formId, fields, submittedAt, attachments = [], recipientEmail }) {
+    const smtpPort = Number(process.env.SMTP_PORT) || 587;
+    const smtpSecure = process.env.SMTP_SECURE
+      ? process.env.SMTP_SECURE === "true"
+      : smtpPort === 465;
+
     const transporter = nodemailer.createTransport({
       host: process.env.SMTP_HOST,
-      port: Number(process.env.SMTP_PORT),
-      secure: process.env.SMTP_SECURE, // true for 465, false for 587
-      family: 4,
+      port: smtpPort,
+      // Explicit boolean to avoid "wrong version number" TLS errors from string envs.
+      // true for 465, false for 587 (unless overridden by SMTP_SECURE).
+      secure: smtpSecure,
       auth: {
         user: process.env.SMTP_USER,
         pass: process.env.SMTP_PASS,
